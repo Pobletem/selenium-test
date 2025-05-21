@@ -1,12 +1,18 @@
 # selenium-test
 Repository to test selenium and its capabilities for QA 
 
-# First Selenium Script: DuckDuckGo Search
+# First Selenium test: DuckDuckGo Search
 
-This project and scirpt demonstrates a basic automated QA test using Python and Selenium WebDriver.
+This project will demonstrate a basic automated QA test using Python and Selenium WebDriver.
 
-# What the Test Does:
+### DuckDuckGo Search Test:
 - Opens the chrome broswer DuckDuckGo homepage
 - Searches the web for "Selenium WebDriver"
 - Ensures that search results are displayed
 - Validates the page title and basic functionality
+
+# Second Selenium test: Login Test
+
+### Login Test (Herokuapp)
+- Enters valid credentials to verify login works
+- Tries invalid credentials and ensures theres proper error handling
