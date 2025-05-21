@@ -93,12 +93,12 @@ def test_invalid_login():
     # Saving the text that shows up in the alert message when a login attempt is made
     errorMessage = flashClass.text
    
-    # Testing to see if the class of the flash msg message is the same class as we expect of the success message 
+    # Testing to see if the class of the flash msg message is the same class as we expect of the error message 
     assert "error" in flashClass.get_attribute("class"), "FAIL: Unexpected class"
 
     print(f"PASS: Proper failure login flash class used")
 
-    # if the text inside the flash msg is the same as the success msg then we know the login succeeded if its not then the login failed
+    # if the text inside the flash msg is the same as the error msg then we know the login failed properly
     assert "Your username is invalid!" in errorMessage, "FAIL: Invalid login not handled properly"
 
     print(f"PASS: Invalid login properly handled")
