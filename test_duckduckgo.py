@@ -36,6 +36,7 @@ def test_duckduckgo_search():
 
     # Printing all the results found
     print(f"PASS: Found {len(results)} results")
+    driver.quit()
 
 def test_valid_login():
     driver = webdriver.Chrome()
@@ -108,8 +109,8 @@ def test_invalid_login():
     driver.quit()
 
 if __name__ == "__main__":
-    #test_duckduckgo_search()
-    #test_valid_login()
+    test_duckduckgo_search()
+    test_valid_login()
     test_invalid_login()
 
  
