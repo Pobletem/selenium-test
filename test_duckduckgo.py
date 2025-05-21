@@ -37,7 +37,43 @@ def test_duckduckgo_search():
     # Printing all the results found
     print(f"PASS: Found {len(results)} results")
 
+def test_valid_login():
+    driver = webdriver.Chrome()
+    # Go to the test website for login testing
+    driver.get("https://the-internet.herokuapp.com/login")
+
+    # finds the username and password fields
+    passwordField = driver.find_element(By.ID, "password")
+    usernameField = driver.find_element(By.ID, "username")
+    # Inputs valid credentials in this case username: tomsmith, password: SuperSecretPassword!
+    usernameField.send_keys("tomsmith")
+    passwordField.send_keys("SuperSecretPassword!")
+
+    # finds the submit button for login and sends the click command
+    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+
+    # QA Assertion: Check that login was successful
+    # finds the class of the flash ui element which is used to display a success or error message after a login
+    flashClass = driver.find_element(By.ID, "flash")
+    # Saving the text that shows up in the alert message when a login attempt is made
+    successMessage = flashClass.text
+   
+    # Testing to see if the class of the flash msg message is the same class as we expect of the success message 
+    assert "success" in flashClass.get_attribute("class"), "FAIL: Unexpected class"
+
+    print(f"PASS: Valid login flash class")
+
+    # if the text inside the flash msg is the same as the success msg then we know the login succeeded if its not then the login failed
+    assert "You logged into a secure area!" in successMessage, "FAIL: Login failed"
+
+    print(f"PASS: Valid login successful")
+
+
+    time.sleep(3)
+    driver.quit()
+
 if __name__ == "__main__":
-    test_duckduckgo_search()
+    #test_duckduckgo_search()
+    test_valid_login()
 
  
