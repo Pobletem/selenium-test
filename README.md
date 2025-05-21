@@ -16,3 +16,10 @@ This project will demonstrate a basic automated QA test using Python and Seleniu
 ### Login Test (Herokuapp)
 - Enters valid credentials to verify login works
 - Tries invalid credentials and ensures theres proper error handling
+
+## Requirements
+
+- **Python** Python 3.11.9 used
+- **Google Chrome** latest stable
+- **ChromeDriver** matching Chrome version (latest stable)
+- **Selenium** 
