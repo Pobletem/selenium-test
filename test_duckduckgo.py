@@ -61,7 +61,7 @@ def test_valid_login():
     # Testing to see if the class of the flash msg message is the same class as we expect of the success message 
     assert "success" in flashClass.get_attribute("class"), "FAIL: Unexpected class"
 
-    print(f"PASS: Valid login flash class")
+    print(f"PASS: Valid login flash class used")
 
     # if the text inside the flash msg is the same as the success msg then we know the login succeeded if its not then the login failed
     assert "You logged into a secure area!" in successMessage, "FAIL: Login failed"
@@ -87,21 +87,21 @@ def test_invalid_login():
     # finds the submit button for login and sends the click command
     driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
-    # QA Assertion: Check that login was successful
+    # QA Assertion: Check that login was a failure
     # finds the class of the flash ui element which is used to display a success or error message after a login
     flashClass = driver.find_element(By.ID, "flash")
     # Saving the text that shows up in the alert message when a login attempt is made
-    successMessage = flashClass.text
+    errorMessage = flashClass.text
    
     # Testing to see if the class of the flash msg message is the same class as we expect of the success message 
-    assert "success" in flashClass.get_attribute("class"), "FAIL: Unexpected class"
+    assert "error" in flashClass.get_attribute("class"), "FAIL: Unexpected class"
 
-    print(f"PASS: Valid login flash class")
+    print(f"PASS: Proper failure login flash class used")
 
     # if the text inside the flash msg is the same as the success msg then we know the login succeeded if its not then the login failed
-    assert "You logged into a secure area!" in successMessage, "FAIL: Login failed"
+    assert "Your username is invalid!" in errorMessage, "FAIL: Invalid login not handled properly"
 
-    print(f"PASS: Valid login successful")
+    print(f"PASS: Invalid login properly handled")
 
 
     time.sleep(3)
