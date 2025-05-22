@@ -30,7 +30,7 @@ def test_duckduckgo_search():
         assert len(results) > 0, "FAIL: No results found"
 
         # Printing all the results found
-        print("PASS: Found {len(results)} results")
+        print(f"PASS: Found {len(results)} results")
     finally:
         driver.quit()
 
